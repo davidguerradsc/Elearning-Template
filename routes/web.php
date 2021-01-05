@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -27,4 +28,8 @@ Route::get('/logout', function() {
     return Redirect::to('/');
 })->name('logout');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [
+    App\Http\Controllers\HomeController::class, 'index'
+])->name('home');
+
+Route::get('/instructor/overview', [InstructorController::class, 'index']);
