@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 
 class InstructorController extends Controller
@@ -29,7 +30,10 @@ class InstructorController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('instructor.create', [
+            'categories' => $categories
+        ]);
     }
 
     /**
