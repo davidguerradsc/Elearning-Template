@@ -36,3 +36,5 @@ Route::get('/instructor/overview', [InstructorController::class, 'index'])->name
 Route::get('/instructor/new', [InstructorController::class, 'create'])->name('instructor.create');
 Route::post('/instructor/store', [InstructorController::class, 'store'])->name('instructor.store');
 Route::get('/instructor/{id}/edit', [InstructorController::class, 'edit'])->name('instructor.edit');
+Route::put('.instructor/{id}/update', [InstructorController::class, 'update'])->name('instructor.update');
+
