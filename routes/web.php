@@ -32,5 +32,6 @@ Route::get('/home', [
     App\Http\Controllers\HomeController::class, 'index'
 ])->name('home');
 
-Route::get('/instructor/overview', [InstructorController::class, 'index'])->name('instuctor.index');
+Route::get('/instructor/overview', [InstructorController::class, 'index'])->name('instructor.index');
 Route::get('/instructor/new', [InstructorController::class, 'create'])->name('instructor.create');
+Route::post('/instructor/store', [InstructorController::class, 'store'])->name('instructor.store');
