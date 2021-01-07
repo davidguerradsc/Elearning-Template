@@ -90,7 +90,12 @@ class InstructorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = Category::all();
+        $course = Course::find($id);
+        return view('instructor.edit',[
+            'course' => $course,
+            'categories' => $categories
+        ]);
     }
 
     /**

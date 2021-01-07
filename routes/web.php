@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Redirect;
 |
 */
 
-Route::get('/', [MainController::class, 'home']);
+Route::get('/', [MainController::class, 'home'])->name('main.home');
 
 
 Auth::routes();
@@ -35,3 +35,4 @@ Route::get('/home', [
 Route::get('/instructor/overview', [InstructorController::class, 'index'])->name('instructor.index');
 Route::get('/instructor/new', [InstructorController::class, 'create'])->name('instructor.create');
 Route::post('/instructor/store', [InstructorController::class, 'store'])->name('instructor.store');
+Route::get('/instructor/{id}/edit', [InstructorController::class, 'edit'])->name('instructor.edit');
