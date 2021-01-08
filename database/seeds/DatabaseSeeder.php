@@ -3,6 +3,7 @@
 use Database\Seeders\CategoriesSeeder;
 use Illuminate\Database\Seeder;
 use Database\Seeders\CoursesSeeder;
+use Database\Seeders\UsersSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,8 +15,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            CoursesSeeder::class,
-            //CategoriesSeeder::class
+            CategoriesSeeder::class,
+            UsersSeeder::class,
+            // CoursesSeeder::class,
         ]);
     }
 }
