@@ -139,6 +139,8 @@ class InstructorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $course = Course::find($id);
+        $course->delete();
+        return redirect()->route('instructor.index')->with('success', 'Le cours à bien été supprimé !');
     }
 }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\PricingController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Redirect;
@@ -35,6 +36,10 @@ Route::get('/home', [
 Route::get('/instructor/overview', [InstructorController::class, 'index'])->name('instructor.index');
 Route::get('/instructor/new', [InstructorController::class, 'create'])->name('instructor.create');
 Route::post('/instructor/store', [InstructorController::class, 'store'])->name('instructor.store');
-Route::get('/instructor/{id}/edit', [InstructorController::class, 'edit'])->name('instructor.edit');
-Route::put('.instructor/{id}/update', [InstructorController::class, 'update'])->name('instructor.update');
+Route::get('/instructor/courses/{id}/edit', [InstructorController::class, 'edit'])->name('instructor.edit');
+Route::put('/instructor/courses/{id}/update', [InstructorController::class, 'update'])->name('instructor.update');
+Route::get('/instructor/courses/{id}/destroy', [InstructorController::class, 'destroy'])->name('instructor.destroy');
+Route::get('/instructor/courses/{id}/pricing', [PricingController::class, 'pricing'])->name('pricing.index');
+Route::post('/instructor/courses/{id}/pricing/store', [PricingController::class, 'store'])->name('pricing.store');
+
 
