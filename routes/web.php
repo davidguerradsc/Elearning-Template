@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CurriculumController;
 use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\PricingController;
@@ -42,4 +43,7 @@ Route::get('/instructor/courses/{id}/destroy', [InstructorController::class, 'de
 Route::get('/instructor/courses/{id}/pricing', [PricingController::class, 'pricing'])->name('pricing.index');
 Route::post('/instructor/courses/{id}/pricing/store', [PricingController::class, 'store'])->name('pricing.store');
 
+Route::get('/instructor/courses/{id}/curriculum', [CurriculumController::class, 'index'])->name('instructor.curriculum.index');
+Route::get('/instructor/courses/{id}/curriculum/add', [CurriculumController::class, 'create'])->name('instructor.curriculum.create');
+Route::post('/instructor/courses/{id}/curriculum/store', [CurriculumController::class, 'store'])->name('instructor.curriculum.store');
 
