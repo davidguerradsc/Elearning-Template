@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Course;
 use App\Section;
-use App\Http\Managers\VideoManager;
 use Cocur\Slugify\Slugify;
 use Illuminate\Http\Request;
+use App\Http\Managers\VideoManager;
+use Illuminate\Contracts\Cache\Store;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class CurriculumController extends Controller
 {
@@ -53,5 +56,58 @@ class CurriculumController extends Controller
         $section->save();
         return redirect()->route('instructor.curriculum.index', $course->id);
 
+    }
+
+    public function edit($id, $sectionId) {
+        $slugify = new Slugify();
+        $course = Course::find($id);
+        $section = Section::find($sectionId);
+        return view('instructor.curriculum.edit', [
+            'course' => $course,
+            'section' => $section
+         ]);
+    }
+
+    public function update(Request $request, $id, $sectionId)
+    {
+        $slugify = new Slugify();
+        $course = Course::find($id);
+        $section = Section::find($sectionId);
+
+        if ($request->input('section_name')) {
+            // Upadate section_name
+            $section->name = $request->input('section_name');
+            $section->slug = $slugify->slugify($section->name);
+        }
+
+        if ($request->file('section_video')) {
+            // Upadate section_video
+            $fileToUpdate ='public/courses_section/'.Auth::user()->id.'/'.$section->video;
+
+            if(Storage::exists($fileToUpdate)) {
+                Storage::delete($fileToUpdate);
+            }
+
+            $video = $this->videoManager->videoStorage($request->file('section_video'));
+            $section->video = $video;
+            $section->playtime_seconds = $this->videoManager->getVideoDuration($video);
+        }
+        $section->save();
+        return redirect()->route('instructor.curriculum.index', $course->id)->with('success', 'La section a bien été modifiée !');
+    }
+
+    public function destroy($id, $sectionId)
+    {
+        $course = Course::find($id);
+        $section = Section::find($sectionId);
+        $fileToDelete ='public/courses_section/'.Auth::user()->id.'/'.$section->video;
+
+
+        if(Storage::exists($fileToDelete)) {
+            Storage::delete($fileToDelete);
+        }
+
+        $section->delete();
+        return redirect()->route('instructor.curriculum.index', $course->id)->with('success', 'La section a bien été supprimée !');
     }
 }
