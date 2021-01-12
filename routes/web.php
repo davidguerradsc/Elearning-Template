@@ -10,6 +10,7 @@ use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\PricingController;
 use App\Http\Controllers\CurriculumController;
 use App\Http\Controllers\InstructorController;
+use App\Http\Controllers\WishListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,3 +74,14 @@ Route::get('/instructor/courses/{id}/curriculum/{section}/destroy', [CurriculumC
  */
 Route::get('/cart',[CartController::class, 'index'])->name('cart.index');
 Route::get('/cart/{id}/store', [CartController::class, 'store'])->name('cart.store');
+Route::get('/cart/{id}/destroy', [CartController::class, 'destroy'])->name('cart.destroy');
+Route::get('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+
+
+/**
+ * WishList
+ */
+Route::get('/wishlist/{id}/store',[WishListController::class, 'store'])->name('wishlist.store');
+Route::get('/wishlist/{id}/destroy',[WishListController::class, 'destroy'])->name('wishlist.destroy');
+Route::get('/wishlist/{id}/switch',[WishListController::class, 'toCart'])->name('wishlist.toCart');
+Route::get('/cart/{id}/switch',[WishListController::class, 'toWishList'])->name('cart.toWishList');
