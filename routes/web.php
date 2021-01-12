@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -37,6 +38,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
  * Courses
  */
 Route::get('/courses',[CoursesController::class, 'courses'])->name('courses.index');
+Route::get('/courses/{slug}',[CoursesController::class, 'course'])->name('courses.show');
 
 /**
  * vue formateur
@@ -66,3 +68,8 @@ Route::get('/instructor/courses/{id}/curriculum/{section}/edit', [CurriculumCont
 Route::put('/instructor/courses/{id}/curriculum/{section}/update', [CurriculumController::class, 'update'])->name('instructor.curriculum.update');
 Route::get('/instructor/courses/{id}/curriculum/{section}/destroy', [CurriculumController::class, 'destroy'])->name('instructor.curriculum.destroy');
 
+/**
+ * Cart
+ */
+Route::get('/cart',[CartController::class, 'index'])->name('cart.index');
+Route::get('/cart/{id}/store', [CartController::class, 'store'])->name('cart.store');
