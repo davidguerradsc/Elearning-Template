@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CourseUser;
 use App\Http\Managers\PaymentManager;
 use App\Payment;
 use Stripe\Stripe;
@@ -50,10 +51,15 @@ class CheckoutController extends Controller
 
                 Payment::create([
                     'course_id' => $item->model->id,
-                    'amount' => $cart->getTotal() * 100,
+                    'amount' => $total,
                     'instructor_part' => $instructor_part,
                     'elearning_part' => $elearning_part,
                     'email' => Auth::user()->email
+                ]);
+
+                CourseUser::create([
+                    'user_id' => Auth::user()->id,
+                    'course_id' => $item->model->id
                 ]);
             }
 

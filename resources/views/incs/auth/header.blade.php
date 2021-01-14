@@ -1,3 +1,11 @@
+@php
+use App\CourseUser;
+
+$coursesUser = CourseUser::where('user_id', Auth::user()->id)->get();
+
+
+@endphp
+
 <nav class="mainmenu mobile-menu">
     <ul>
         <li class="active">
@@ -33,20 +41,30 @@
             </ul>
         </li>
         <li>
-            <a href="#">
+            <a href="{{ route('participant.index') }}">
                 <i class="fas fa-book"></i>
                 Mes cours
             </a>
             <ul class="dropdown">
-                <li>
-                    <div class="d-flex  ml-2 my-3">
-                        <img class="avatar border-rounded"
-                            src="https://blog.hyperiondev.com/wp-content/uploads/2019/02/Blog-Types-of-Web-Dev.jpg" />
-                        <div class="user-infos">
-                            <a href="#"><small>Titre du cours</small></a>
-                        </div>
-                    </div>
-                </li>
+                @if (count($coursesUser) > 0)
+                    @foreach ($coursesUser as $item)
+                        <li>
+                            <div class="d-flex  ml-2 my-3">
+                                <img class="avatar border-rounded"
+                                    src="/storage/courses/{{ $item->course->user_id }}/{{ $item->course->image }}" />
+                                <div class="user-infos">
+                                    <a href="#"><small>{{ $item->course->title }}</small></a>
+                                </div>
+                            </div>
+                        </li>
+                    @endforeach
+
+                @else
+                    <h5 class="text-cent">Vous n'êtes inscrit à aucun cours.</h5>
+                @endif
+
+
+
             </ul>
         </li>
         <li>

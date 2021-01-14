@@ -1,17 +1,18 @@
 <?php
 
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\PricingController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\WishListController;
 use App\Http\Controllers\CurriculumController;
 use App\Http\Controllers\InstructorController;
-use App\Http\Controllers\WishListController;
+use App\Http\Controllers\ParticipantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,15 @@ Route::get('/instructor/courses/{id}/edit', [InstructorController::class, 'edit'
 Route::put('/instructor/courses/{id}/update', [InstructorController::class, 'update'])->name('instructor.update');
 Route::get('/instructor/courses/{id}/destroy', [InstructorController::class, 'destroy'])->name('instructor.destroy');
 Route::get('instructor/courses/{id}/publish', [InstructorController::class, 'publish'])->name('instructor.publish');
+Route::get('instructor/courses/{id}/participants', [InstructorController::class, 'participants'])->name('instructor.participants');
+
+/**
+ * Vue participant
+ */
+Route::get('/participant/courses', [ParticipantController::class, 'index'])->name('participant.index');
+Route::get('/participant/courses/{slug}', [ParticipantController::class, 'show'])->name('participant.show');
+Route::get('/participant/courses/{slug}/{section}', [ParticipantController::class, 'section'])->name('participant.section');
+
 
 /**
  * Tarification
