@@ -18,13 +18,17 @@
                       </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                          <th>20/03/2020</th>
-                          <td>utilisateur@email.com</td>
-                          <td>Titre du cours</td>
-                          <td>19,99 €</td>
-                          <td>13,99 €</td>
+
+                      @foreach ($participants as $participant)
+                          <tr>
+                          <th>{{ $participant->created_at }}</th>
+                          <td>{{ $participant->email }}</td>
+                          <td>{{ $course->title }}</td>
+                          <td>{{ $participant->amount }} €</td>
+                          <td>{{ $participant->instructor_part }} €</td>
                         </tr>
+                      @endforeach
+                        
                     </tbody>
                   </table>
             </div>
