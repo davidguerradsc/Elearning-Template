@@ -19,13 +19,13 @@
 
                         <table class="table table-striped">
                             <tbody>
-
+                                @php
+                                $tax = \Cart::session(Auth::user()->id)->getSubTotal() - (\Cart::session(Auth::user()->id)->getSubTotal() / 1.2) ;
+                                $roundedTax = round($tax, 2);
+                                @endphp
                                 @foreach (\Cart::session(Auth::user()->id)->getContent() as $course)
 
-                                    @php
-                                    $tax = \Cart::getTotal() - (\Cart::getTotal() / 1.2) ;
-                                    $roundedTax = round($tax, 2)
-                                    @endphp
+
 
                                     <tr>
                                         <td><img class="cart-img"
@@ -38,7 +38,7 @@
                                         <td class="text-left">
                                             <small><a class="btn border"
                                                     href="{{ route('cart.destroy', $course->id) }}">Supprimer</a></small><br>
-                                            
+
                                             <small><a class="btn border"
                                                     href="{{ route('cart.toWishList', $course->id) }}">Ajouter à la liste de
                                                     souhaits</a></small>
@@ -76,7 +76,8 @@
                             <a href="#" class="btn btn-block btn-light">Continuer vos achats</a href="#">
                         </div>
                         <div class="col-sm-12 col-md-6 text-right">
-                            <a href="#" class="btn btn-lg btn-block btn-success text-uppercase">Payer</a>
+                            <a href="{{ route('checkout.payment') }}"
+                                class="btn btn-lg btn-block btn-success text-uppercase">Payer</a>
                         </div>
                     </div>
                 </div>
@@ -138,8 +139,10 @@
                                     <p>Par {{ $course->model->user->name }}</p>
                                 </td>
                                 <td class="text-left">
-                                    <small><a class="btn border" href="{{ route('wishlist.destroy', $course->id) }}">Supprimer</a></small><br>
-                                    <small><a class="btn border" href="{{ route('wishlist.toCart', $course->id) }}">Ajouter au panier</a></small>
+                                    <small><a class="btn border"
+                                            href="{{ route('wishlist.destroy', $course->id) }}">Supprimer</a></small><br>
+                                    <small><a class="btn border" href="{{ route('wishlist.toCart', $course->id) }}">Ajouter
+                                            au panier</a></small>
                                 </td>
                                 <td class="text-right">{{ $course->price }} €</td>
                             </tr>
@@ -149,14 +152,14 @@
                 </table>
             </div>
         @else
-        <div class="empty-cart text-center">
-            <i class="fas fa-shopping-cart fa-7x"></i>
-            <h4 class="my-5">Votre liste de souhait est vide. Contiuez vos achats et trouvez un cours.</h4>
-            <a href="{{ route('courses.index') }}" class="primary-btn">
-                Continuez vos achats
-                <i class="fas fa-arrow-right ml-2"></i>
-            </a>
-        </div>
+            <div class="empty-cart text-center">
+                <i class="fas fa-shopping-cart fa-7x"></i>
+                <h4 class="my-5">Votre liste de souhait est vide. Contiuez vos achats et trouvez un cours.</h4>
+                <a href="{{ route('courses.index') }}" class="primary-btn">
+                    Continuez vos achats
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
             @endif
         </div>
     </div>

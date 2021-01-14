@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -85,3 +86,10 @@ Route::get('/wishlist/{id}/store',[WishListController::class, 'store'])->name('w
 Route::get('/wishlist/{id}/destroy',[WishListController::class, 'destroy'])->name('wishlist.destroy');
 Route::get('/wishlist/{id}/switch',[WishListController::class, 'toCart'])->name('wishlist.toCart');
 Route::get('/cart/{id}/switch',[WishListController::class, 'toWishList'])->name('cart.toWishList');
+
+/**
+ * Checkout
+ */
+Route::get('/checkout', [CheckoutController::class, 'checkout'])->name('checkout.payment');
+Route::post('/checkout/charge', [CheckoutController::class, 'charge'])->name('checkout.charge');
+Route::get('/checkout/success', [CheckoutController::class, 'success'])->name('checkout.success');
