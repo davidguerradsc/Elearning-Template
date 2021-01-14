@@ -42,6 +42,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
  */
 Route::get('/courses',[CoursesController::class, 'courses'])->name('courses.index');
 Route::get('/courses/{slug}',[CoursesController::class, 'course'])->name('courses.show');
+Route::get('/courses/category/{id}',[CoursesController::class, 'filter'])->name('courses.filter');
+
 
 /**
  * vue formateur

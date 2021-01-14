@@ -20,11 +20,16 @@ $coursesUser = CourseUser::where('user_id', Auth::user()->id)->get();
                 Suivre un cours
             </a>
             <ul class="dropdown px-2 py-3">
-                <li>
-                    <a href="#">
-                        Catégorie
+                
+                @foreach ( \App\category::all() as $category)
+                    <li>
+                    <a href="{{ route('courses.filter', $category->id) }}">
+                        {!! $category->icon !!}
+                        {{ $category->name }}
                     </a>
                 </li>
+                @endforeach
+                
             </ul>
         </li>
         <li>

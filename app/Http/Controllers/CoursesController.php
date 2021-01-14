@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -36,6 +37,16 @@ class CoursesController extends Controller
         return view('courses.show', [
             'recommendations' => $recommendations,
             'course' => $course
+        ]);
+    }
+
+    public function filter($id)
+    {
+        $category = Category::find($id);
+        $courses = Course::where('category_id', $category->id)->where('is_published', true)->get();
+        
+        return view ('courses.index', [
+            'courses' => $courses
         ]);
     }
 }
