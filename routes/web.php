@@ -30,7 +30,7 @@ Route::get('/', [MainController::class, 'home'])->name('main.home');
 
 Auth::routes();
 Route::get('/logout', function() {
-    auth()->logout();
+    Auth::logout();
     Session()->flush();
     return Redirect::to('/');
 })->name('logout');
