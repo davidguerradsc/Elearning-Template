@@ -1,9 +1,9 @@
 <?php
 
-//use Database\Seeders\CategoriesSeeder;
+use Database\Seeders\CategoriesSeeder;
 use Illuminate\Database\Seeder;
-//use Database\Seeders\CoursesSeeder;
-//use Database\Seeders\UsersSeeder;
+use Database\Seeders\CoursesSeeder;
+use Database\Seeders\UsersSeeder;
 
 class DatabaseSeeder extends Seeder
 {
