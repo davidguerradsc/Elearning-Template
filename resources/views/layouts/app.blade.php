@@ -8,14 +8,14 @@
 
     <!-- Bootstrap CSS -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href="{{ asset('css/elegant-icons.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/magnific-popup.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/slicknav.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/elegant-icons.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/owl.carousel.min.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/magnific-popup.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/slicknav.min.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ secure_asset('css/main.css') }}" rel="stylesheet">
     <script src="https://kit.fontawesome.com/907683f3ba.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -53,15 +53,15 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <!-- Popper js -->
-    <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ secure_asset('js/jquery-3.3.1.min.js') }}"></script>
     <!-- Bootstrap js -->
-    <script src="{{ asset('js/jquery.countdown.min.js') }}"></script>
+    <script src="{{ secure_asset('js/jquery.countdown.min.js') }}"></script>
     <!-- All Plugins js -->
-    <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ secure_asset('js/jquery.magnific-popup.min.js') }}"></script>
     <!-- Active js -->
-    <script src="{{ asset('js/jquery.slicknav.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ secure_asset('js/jquery.slicknav.js') }}"></script>
+    <script src="{{ secure_asset('js/main.js') }}"></script>
+    <script src="{{ secure_asset('js/bootstrap.min.js') }}"></script>
 </body>
 
 </html>
