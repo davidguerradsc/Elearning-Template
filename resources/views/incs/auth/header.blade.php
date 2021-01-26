@@ -21,7 +21,7 @@ $coursesUser = CourseUser::where('user_id', Auth::user()->id)->get();
             </a>
             <ul class="dropdown px-2 py-3">
                 
-                @foreach ( \App\category::all() as $category)
+                @foreach ( \App\Category::all() as $category)
                     <li>
                     <a href="{{ route('courses.filter', $category->id) }}">
                         {!! $category->icon !!}
