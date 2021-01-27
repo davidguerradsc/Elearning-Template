@@ -54,8 +54,8 @@ Route::post('/instructor/store', [InstructorController::class, 'store'])->name('
 Route::get('/instructor/courses/{id}/edit', [InstructorController::class, 'edit'])->name('instructor.edit');
 Route::put('/instructor/courses/{id}/update', [InstructorController::class, 'update'])->name('instructor.update');
 Route::get('/instructor/courses/{id}/destroy', [InstructorController::class, 'destroy'])->name('instructor.destroy');
-Route::get('/instructor/courses/{id}/publish', [InstructorController::class, 'publish'])->name('instructor.publish');
-Route::get('/instructor/courses/{id}/participants', [InstructorController::class, 'participants'])->name('instructor.participants');
+Route::get('instructor/courses/{id}/publish', [InstructorController::class, 'publish'])->name('instructor.publish');
+Route::get('instructor/courses/{id}/participants', [InstructorController::class, 'participants'])->name('instructor.participants');
 
 /**
  * Vue participant
