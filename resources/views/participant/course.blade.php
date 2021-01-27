@@ -14,7 +14,7 @@ $increment = 0;
     <div class="row">
         <div class="col-md-8">
             <video width="900" height="600" controls>
-               <source src="{{ asset("storage/courses_section/$course->user_id/$section->video") }}" type="video/mp4">
+               <source src="{{ asset("storage/app/public/courses_section/$course->user_id/$section->video") }}" type="video/mp4">
             </video>
         </div>
         <div class="col-md-4">

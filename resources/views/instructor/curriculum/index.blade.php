@@ -33,7 +33,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-4 px3 py-3">
                                                         <video width="320" height="180" controls type="video/mp4"
-                                                            src="{{ asset("storage/courses_section/$course->user_id/$section->video") }}">
+                                                            src="{{ asset("storage/app/public/courses_section/$course->user_id/$section->video") }}">
                                                         </video>
                                                     </div>
                                                     <div class="col-lg-4 text-left">

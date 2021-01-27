@@ -29,7 +29,7 @@
                                 </div>
                             </div>
                             <div class="blog-item set-bg"
-                                data-setbg="/storage/courses/{{ $course->user_id }}/{{ $course->image }}">
+                                data-setbg="/storage/app/public/courses/{{ $course->user_id }}/{{ $course->image }}">
                             </div>
                             <div class="btn-actions d-flex justify-content-center">
                                 <a href="{{ route('instructor.edit', $course->id) }}" class="primary-btn">

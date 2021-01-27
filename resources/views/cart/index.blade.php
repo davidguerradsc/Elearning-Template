@@ -28,8 +28,9 @@
 
 
                                     <tr>
-                                        <td><img class="cart-img"
-                                                src="/storage/courses/{{ $course->model->user_id }}/{{ $course->model->image }}" />
+                                        <td>
+                                            <img class="cart-img"
+                                                src="/storage/app/public/courses/{{ $course->model->user_id }}/{{ $course->model->image }}" />
                                         </td>
                                         <td>
                                             <p><b>{{ $course->model->title }}</b></p>
@@ -98,29 +99,7 @@
             @endif
 
         </div>
-        {{-- <div class="save-for-later jumbotron my-5">
-            <h3>Enregistré pour plus tard</h3>
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <tbody>
-                        <tr>
-                            <td><img class="cart-img"
-                                    src="https://blog.hyperiondev.com/wp-content/uploads/2019/02/Blog-Types-of-Web-Dev.jpg" />
-                            </td>
-                            <td>
-                                <p><b>Titre du cours</b></p>
-                                <p>Par Nom du formateur</p>
-                            </td>
-                            <td class="text-left">
-                                <small><a class="btn border" href="#">Supprimer</a></small><br>
-                                <small><a class="btn border" href="#">Ajouter au panier</a></small>
-                            </td>
-                            <td class="text-right">19,99 €</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div> --}}
+        
         <div class="wish-list jumbotron pt-3">
 
             @if (count(\Cart::session(Auth::user()->id.'_wishlist')->getContent()) > 0 )
@@ -131,8 +110,9 @@
 
                         @foreach (\Cart::session(Auth::user()->id . '_wishlist')->getContent() as $course)
                             <tr>
-                                <td><img class="cart-img"
-                                        src="/storage/courses/{{ $course->model->user_id }}/{{ $course->model->image }}" />
+                                <td>
+                                    <img class="cart-img"
+                                        src="/storage/app/public/courses/{{ $course->model->user_id }}/{{ $course->model->image }}" />
                                 </td>
                                 <td>
                                     <p><b>{{ $course->model->title }}</b></p>

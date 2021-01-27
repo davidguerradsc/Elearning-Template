@@ -35,7 +35,7 @@
                             <label for="image">Image du cours</label>
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <img src="/storage/courses/{{ Auth::user()->id }}/{{ $course->image }}"/>
+                                    <img src="/storage/app/public/courses/{{ Auth::user()->id }}/{{ $course->image }}"/>
                                 </div>
                                 <div class="col-lg-6">
                                     <input type="file" name="image"/>

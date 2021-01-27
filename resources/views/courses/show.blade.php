@@ -3,7 +3,7 @@
 @section('content')
 
     <section class="blog-hero-section set-bg pb-5"
-        data-setbg="/storage/courses/{{ $course->user_id }}/{{ $course->image }}">
+        data-setbg="/storage/app/public/courses/{{ $course->user_id }}/{{ $course->image }}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -40,7 +40,7 @@
                         <div class="bd-more-pic">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <img src="/storage/courses/{{ $course->user_id }}/{{ $course->image }}" alt="">
+                                    <img src="/storage/app/public/courses/{{ $course->user_id }}/{{ $course->image }}" alt="">
                                 </div>
                                 <div class="col-md-6">
                                     <div class="price-item top-rated">

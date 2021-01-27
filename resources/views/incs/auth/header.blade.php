@@ -21,7 +21,7 @@ $coursesUser = CourseUser::where('user_id', Auth::user()->id)->get();
             </a>
             <ul class="dropdown px-2 py-3">
                 
-                @foreach ( \App\category::all() as $category)
+                @foreach ( \App\Category::all() as $category)
                     <li>
                     <a href="{{ route('courses.filter', $category->id) }}">
                         {!! $category->icon !!}
@@ -54,9 +54,9 @@ $coursesUser = CourseUser::where('user_id', Auth::user()->id)->get();
                 @if (count($coursesUser) > 0)
                     @foreach ($coursesUser as $item)
                         <li>
-                            <div class="d-flex  ml-2 my-3">
+                            <div class="d-flex  ml-2 my-3">test
                                 <img class="avatar border-rounded"
-                                    src="/storage/courses/{{ $item->course->user_id }}/{{ $item->course->image }}" />
+                                    src="/storage/app/public/courses/{{ $item->course->user_id }}/{{ $item->course->image }}" />
                                 <div class="user-infos">
                                     <a href="#"><small>{{ $item->course->title }}</small></a>
                                 </div>
@@ -90,7 +90,7 @@ $coursesUser = CourseUser::where('user_id', Auth::user()->id)->get();
                     <li>
                         <div class="d-flex">
                             <img class="avatar border-rounded"
-                                src="/storage/courses/{{ $item->model->user_id }}/{{ $item->model->image }}" />
+                                src="/storage/app/public/courses/{{ $item->model->user_id }}/{{ $item->model->image }}" />
                             <div class="user-infos ml-3">
                                 <small>{{ $item->model->title }}</small>
                                 <p class="text-danger">{{ $item->price }} €</p>
@@ -130,7 +130,7 @@ $coursesUser = CourseUser::where('user_id', Auth::user()->id)->get();
                     <li>
                         <div class="d-flex">
                             <img class="avatar border-rounded"
-                                src="/storage/courses/{{ $item->model->user_id }}/{{ $item->model->image }}" />
+                                src="/storage/app/public/courses/{{ $item->model->user_id }}/{{ $item->model->image }}" />
                             <div class="user-infos ml-3">
                                 <small>{{ $item->name }}</small>
                                 <p class="text-danger">{{ $item->price }} €</p>

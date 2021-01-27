@@ -22,7 +22,7 @@
                             <div class="col-lg-4">
                                 <div class="about-pic">
                                     <a href="{{ route('courses.show', $course->slug) }}">
-                                        <img src="/storage/courses/{{ $course->user_id }}/{{ $course->image }}"
+                                        <img src="/storage/app/public/courses/{{ $course->user_id }}/{{ $course->image }}"
                                             alt="Course img">
                                     </a>
                                 </div>

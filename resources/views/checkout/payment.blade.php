@@ -38,7 +38,7 @@
                             @foreach (\Cart::session(Auth::user()->id)->getContent() as $course)
                                 <tr>
                                     <td><img class="cart-img"
-                                            src="/storage/courses/{{ $course->model->user_id }}/{{ $course->model->image }}" />
+                                            src="/storage/app/public/courses/{{ $course->model->user_id }}/{{ $course->model->image }}" />
                                     </td>
                                     <td>
                                         <p><b>{{ $course->name }}</b></p>

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         @foreach ($order as $item)
             <div class="card w-25 mx-5">
-                <img src="/storage/courses/{{ $item->model->user_id }}/{{ $item->model->image }}">
+                <img src="/storage/app/public/courses/{{ $item->model->user_id }}/{{ $item->model->image }}">
                 <div class="card-body">
                     <div class="action d-flex justify-content-between">
                         <p>

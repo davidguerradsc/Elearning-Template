@@ -15,7 +15,7 @@
                                 <div class="col-lg-3">
                                     <div class="about-pic">
                                         <a href="#">
-                                            <img src="/storage/courses/{{ $item->course->user_id }}/{{ $item->course->image }}"
+                                            <img src="/storage/app/public/courses/{{ $item->course->user_id }}/{{ $item->course->image }}"
                                                 alt="Course img">
                                         </a>
                                     </div>
